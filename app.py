@@ -150,6 +150,39 @@ def home():
                 color: #bbb;
                 margin-top: 60px;
             }
+            @media screen and (max-width: 768px) {
+            .container-box {
+                padding: 20px 15px;
+            }
+
+            .header img {
+                max-width: 120px;
+            }
+
+            .header h1 {
+                font-size: 1.5em;
+            }
+
+            .icon-service-grid, .icon-service-row {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .icon-service-item {
+                width: 100%;
+                margin-bottom: 30px;
+            }
+
+            .contact-bar {
+                font-size: 0.8rem;
+                padding: 6px 10px;
+                text-align: center;
+            }
+
+            .cta h2, .cta p, .centered-section p {
+                font-size: 1rem;
+            }
+        }
         </style>
     </head>
     <body>
