@@ -188,7 +188,7 @@ def home():
     <body>
         <div class="contact-bar">
             <p>
-                <i class="fas fa-envelope"></i> <a href="mailto:ramirez.ricardo55@yahoo.com">ramirez.ricardo55@yahoo.com</a> | 
+                <i class="fas fa-envelope"></i> <a href="mailto:ricardo@rsautomationep.com">ricardo@rsautomationep.com</a> | 
                 <i class="fas fa-phone"></i> <a href="tel:+19154785436">(915) 478-5436</a>
             </p>
         </div>
@@ -269,7 +269,7 @@ def home():
             <div class="container-box">
                 <section class="cta">
                     <h2>Ready to streamline your reporting?</h2>
-                    <p>Email us at <a href="mailto:ramirez.ricardo55@yahoo.com">ramirez.ricardo55@yahoo.com</a></p>
+                    <p>Email us at <a href="mailto:ricardo@rsautomationep.com">ricardo@rsautomationep.com</a></p>
                 </section>
                 <footer>
                     © 2025 RS Automation. All rights reserved.
