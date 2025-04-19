@@ -5,6 +5,8 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 import sqlite3
 import os
+import pandas as pd
+from datetime import datetime
 
 DB_PATH = os.path.join(os.path.dirname(__file__), 'emails.db')
 
@@ -26,6 +28,20 @@ def store_email(email):
         print("✅ Email stored in SQLite")
     except Exception as e:
         print(f"❌ SQLite Error: {e}")
+
+def append_email_to_excel(email):
+    excel_path = os.path.join(os.path.dirname(__file__), 'emails.xlsx')
+    data = {'email': [email], 'timestamp': [datetime.now().strftime("%Y-%m-%d %H:%M:%S")]}
+    df_new = pd.DataFrame(data)
+
+    if os.path.exists(excel_path):
+        df_existing = pd.read_excel(excel_path)
+        df_combined = pd.concat([df_existing, df_new], ignore_index=True)
+    else:
+        df_combined = df_new
+
+    df_combined.to_excel(excel_path, index=False)
+    print("✅ Email appended to Excel")
 
 
 # SMTP config for Microsoft 365
@@ -326,6 +342,7 @@ def get_pdf():
         try:
           
             store_email(email)
+            append_email_to_excel(email)
             send_notification_email(email)
         except Exception as e:
             print(f"❌ Error storing email: {e}")
