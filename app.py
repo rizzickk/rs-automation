@@ -280,7 +280,3 @@ def home():
 def download_pdf():
     return send_from_directory(app.static_folder, 'RS_Automation_Overview.pdf', as_attachment=True)
 
-# Run the app
-if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 10000))
-    app.run(host='0.0.0.0', port=port)
