@@ -8,8 +8,8 @@ SMTP_USER = 'your_email@yourdomain.com'  # <-- Replace with your email
 SMTP_PASS = 'your_password_here'         # <-- Replace with password or use env vars
 
 
-app = Flask(__name__, static_folder='static')
-app.secret_key = os.getenv("FLASK_SECRET_KEY", "fallback_secret")
+app = Flask(__name__)
+app.secret_key = 'your_secret_key_here'
 
 
 @app.route('/')
@@ -234,6 +234,7 @@ def home():
                 <section class="centered-section">
                     <h2>Get Started</h2>
                     <p>Select your preferred way to engage:</p>
+                    <p><a href="#upload">📤 Upload Redacted File</a></p>
                     <p><a href="https://calendly.com/ramirez-ricardo55/30min" target="_blank">📅 Schedule a Strategy Call</a></p>
                     <a href="/static/RS_Automation_OnePager_Refined.pdf" download>📄 Download Our Overview PDF</a>
                     <p><a href="/static/rs_template.xlsx" download>📂 Download Redacted Template</a></p>
@@ -267,20 +268,12 @@ def home():
     </body>
     </html>
     '''
-
-
-
-# Your HTML content goes here
-@app.route('/')
-def home():
     return Response(html, mimetype='text/html')
 
-# Route for PDF download
-@app.route('/download')
-def download_pdf():
-    return send_from_directory(app.static_folder, 'RS_Automation_Overview.pdf', as_attachment=True)
+@app.route('/static/<path:filename>')
+def static_files(filename):
+    return send_from_directory('static', filename)
 
-# Run the app
+
 if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 10000))
-    app.run(host='0.0.0.0', port=port)
+    app.run(debug=True)
