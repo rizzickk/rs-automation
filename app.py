@@ -395,6 +395,7 @@ def get_pdf():
                 <input type="email" name="email" placeholder="you@company.com" required><br>
                 <input type="submit" value="Download PDF">
             </form>
+            <p style="margin-top:20px;"><a href="/" style="color:#00A1DA;">← Back to RS Automation</a></p>
         </div>
     </body>
     </html>
