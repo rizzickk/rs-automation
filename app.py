@@ -3,6 +3,30 @@ import os
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
+import sqlite3
+import os
+
+DB_PATH = os.path.join(os.path.dirname(__file__), 'emails.db')
+
+
+def store_email(email):
+    try:
+        conn = sqlite3.connect(DB_PATH)
+        c = conn.cursor()
+        c.execute(''' 
+            CREATE TABLE IF NOT EXISTS emails (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                email TEXT NOT NULL,
+                timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
+            )
+        ''')
+        c.execute("INSERT INTO emails (email) VALUES (?)", (email,))
+        conn.commit()
+        conn.close()
+        print("✅ Email stored in SQLite")
+    except Exception as e:
+        print(f"❌ SQLite Error: {e}")
+
 
 # SMTP config for Microsoft 365
 SMTP_SERVER = 'smtp.office365.com'
@@ -290,7 +314,7 @@ def send_notification_email(submitted_email):
     except Exception as e:
         print(f"❌ Failed to send email: {e}")
 
-        
+
 @app.route('/get-pdf', methods=['GET', 'POST'])
 
 def get_pdf():
@@ -300,13 +324,11 @@ def get_pdf():
         email = request.form.get('email')
         print(f"Email received: {email}")        # check email value
         try:
-            with open('emails.txt', 'a') as f:
-                f.write(email + '\n')
-            print("✅ Email written to emails.txt")  # confirmation
-
+          
+            store_email(email)
             send_notification_email(email)
         except Exception as e:
-            print(f"❌ Error writing email: {e}")
+            print(f"❌ Error storing email: {e}")
 
         return redirect(url_for('download_pdf'))
 
