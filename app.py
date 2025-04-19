@@ -346,7 +346,42 @@ def get_pdf():
         except Exception as e:
             print(f"❌ Error storing email: {e}")
 
-        return redirect(url_for('download_pdf'))
+        return Response(f'''
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Thank You</title>
+    <script>
+        setTimeout(function() {{
+            window.location.href = "{url_for('download_pdf')}";
+        }}, 2000);
+    </script>
+    <style>
+        body {{
+            font-family: Inter, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }}
+        .message-box {{
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }}
+    </style>
+</head>
+<body>
+    <div class="message-box">
+        <h2>Thanks for your submission!</h2>
+        <p>Your download will begin in a moment...</p>
+    </div>
+</body>
+</html>
+''', mimetype='text/html')
 
     # HTML for email input form
 
