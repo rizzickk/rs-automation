@@ -270,13 +270,20 @@ def home():
 
     return Response(html, mimetype='text/html')
 @app.route('/get-pdf', methods=['GET', 'POST'])
+print("DEBUG: Reached /get-pdf")
+print(f"Request method: {request.method}")
 def get_pdf():
     if request.method == 'POST':
         email = request.form.get('email')
-        if email:
+        print(f"Email received: {email}")        # check email value
+        try:
             with open('emails.txt', 'a') as f:
                 f.write(email + '\n')
-            return redirect(url_for('download_pdf'))
+            print("✅ Email written to emails.txt")  # confirmation
+        except Exception as e:
+            print(f"❌ Error writing email: {e}")
+
+        return redirect(url_for('download_pdf'))
 
     # HTML for email input form
 
