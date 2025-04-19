@@ -3,12 +3,12 @@ import os
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
-# SMTP config for GoDaddy
+
+# SMTP config for Microsoft 365
 SMTP_SERVER = 'smtp.office365.com'
 SMTP_PORT = 587
-SMTP_USER = 'info@rsautomationep.com'  # <-- Replace with your email
-SMTP_PASS = os.getenv('SMTP_PASS')      # <-- Replace with password or use env vars
-
+SMTP_USER = 'info@rsautomationep.com'
+SMTP_PASS = os.getenv('SMTP_PASS')
 
 app = Flask(__name__, static_folder='static')
 app.secret_key = os.getenv("FLASK_SECRET_KEY", "fallback_secret")
@@ -272,24 +272,25 @@ def home():
 
     return Response(html, mimetype='text/html')
 
-
 def send_notification_email(submitted_email):
     msg = MIMEMultipart()
     msg['From'] = SMTP_USER
-    msg['To'] = SMTP_USER  # Send to yourself
+    msg['To'] = SMTP_USER
     msg['Subject'] = "New PDF Download Request"
 
     body = f"A new user submitted their email: {submitted_email}"
     msg.attach(MIMEText(body, 'plain'))
 
     try:
-        with smtplib.SMTP_SSL(SMTP_SERVER, SMTP_PORT) as server:
+        with smtplib.SMTP(SMTP_SERVER, SMTP_PORT) as server:
+            server.starttls()  # Required for Office 365
             server.login(SMTP_USER, SMTP_PASS)
             server.sendmail(SMTP_USER, SMTP_USER, msg.as_string())
         print("✅ Notification email sent.")
     except Exception as e:
         print(f"❌ Failed to send email: {e}")
 
+        
 @app.route('/get-pdf', methods=['GET', 'POST'])
 
 def get_pdf():
