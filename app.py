@@ -302,6 +302,8 @@ def get_pdf():
             with open('emails.txt', 'a') as f:
                 f.write(email + '\n')
             print("✅ Email written to emails.txt")  # confirmation
+
+            send_notification_email(email)
         except Exception as e:
             print(f"❌ Error writing email: {e}")
 
