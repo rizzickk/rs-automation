@@ -270,9 +270,10 @@ def home():
 
     return Response(html, mimetype='text/html')
 @app.route('/get-pdf', methods=['GET', 'POST'])
-print("DEBUG: Reached /get-pdf")
-print(f"Request method: {request.method}")
+
 def get_pdf():
+    print("DEBUG: Reached /get-pdf")
+    print(f"Request method: {request.method}")
     if request.method == 'POST':
         email = request.form.get('email')
         print(f"Email received: {email}")        # check email value
