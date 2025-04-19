@@ -1,12 +1,11 @@
 from flask import Flask, Response, send_from_directory, request, redirect, url_for, flash
-import os
-import smtplib
-from email.mime.text import MIMEText
-from email.mime.multipart import MIMEMultipart
+# import smtplib
+# from email.mime.text import MIMEText
+# from email.mime.multipart import MIMEMultipart
 import sqlite3
 import os
-import pandas as pd
-from datetime import datetime
+# import pandas as pd
+# from datetime import datetime
 
 DB_PATH = os.path.join(os.path.dirname(__file__), 'emails.db')
 
@@ -29,16 +28,16 @@ def store_email(email):
     except Exception as e:
         print(f"❌ SQLite Error: {e}")
 
-def append_email_to_excel(email):
-    excel_path = os.path.join(os.path.dirname(__file__), 'emails.xlsx')
-    data = {'email': [email], 'timestamp': [datetime.now().strftime("%Y-%m-%d %H:%M:%S")]}
-    df_new = pd.DataFrame(data)
+# def append_email_to_excel(email):
+#     excel_path = os.path.join(os.path.dirname(__file__), 'emails.xlsx')
+#     data = {'email': [email], 'timestamp': [datetime.now().strftime("%Y-%m-%d %H:%M:%S")]}
+#     df_new = pd.DataFrame(data)
 
-    if os.path.exists(excel_path):
-        df_existing = pd.read_excel(excel_path)
-        df_combined = pd.concat([df_existing, df_new], ignore_index=True)
-    else:
-        df_combined = df_new
+#     if os.path.exists(excel_path):
+#         df_existing = pd.read_excel(excel_path)
+#         df_combined = pd.concat([df_existing, df_new], ignore_index=True)
+#     else:
+#         df_combined = df_new
 
     df_combined.to_excel(excel_path, index=False)
     print("✅ Email appended to Excel")
@@ -312,23 +311,23 @@ def home():
 
     return Response(html, mimetype='text/html')
 
-def send_notification_email(submitted_email):
-    msg = MIMEMultipart()
-    msg['From'] = SMTP_USER
-    msg['To'] = SMTP_USER
-    msg['Subject'] = "New PDF Download Request"
+# def send_notification_email(submitted_email):
+#     msg = MIMEMultipart()
+#     msg['From'] = SMTP_USER
+#     msg['To'] = SMTP_USER
+#     msg['Subject'] = "New PDF Download Request"
 
-    body = f"A new user submitted their email: {submitted_email}"
-    msg.attach(MIMEText(body, 'plain'))
+#     body = f"A new user submitted their email: {submitted_email}"
+#     msg.attach(MIMEText(body, 'plain'))
 
-    try:
-        with smtplib.SMTP(SMTP_SERVER, SMTP_PORT) as server:
-            server.starttls()  # Required for Office 365
-            server.login(SMTP_USER, SMTP_PASS)
-            server.sendmail(SMTP_USER, SMTP_USER, msg.as_string())
-        print("✅ Notification email sent.")
-    except Exception as e:
-        print(f"❌ Failed to send email: {e}")
+#     try:
+#         with smtplib.SMTP(SMTP_SERVER, SMTP_PORT) as server:
+#             server.starttls()  # Required for Office 365
+#             server.login(SMTP_USER, SMTP_PASS)
+#             server.sendmail(SMTP_USER, SMTP_USER, msg.as_string())
+#         print("✅ Notification email sent.")
+#     except Exception as e:
+#         print(f"❌ Failed to send email: {e}")
 
 
 @app.route('/get-pdf', methods=['GET', 'POST'])
@@ -340,10 +339,10 @@ def get_pdf():
         email = request.form.get('email')
         print(f"Email received: {email}")        # check email value
         try:
-          
+
             store_email(email)
-            append_email_to_excel(email)
-            send_notification_email(email)
+            # append_email_to_excel(email)
+            # send_notification_email(email)
         except Exception as e:
             print(f"❌ Error storing email: {e}")
 
@@ -404,6 +403,12 @@ def get_pdf():
 @app.route('/download')
 def download_pdf():
     return send_from_directory('static', 'RS_Automation_OnePager_Refined.pdf', as_attachment=True)
+
+@app.route('/admin/download-db')
+def download_db():
+    db_path = os.path.dirname(__file__)
+    return send_from_directory(db_path, 'emails.db', as_attachment=True)
+
 @app.route('/admin/emails')
 def view_emails():
     try:
