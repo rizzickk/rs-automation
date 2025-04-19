@@ -13,7 +13,67 @@ app.secret_key = os.getenv("FLASK_SECRET_KEY", "fallback_secret")
 
 
 @app.route('/')
+@app.route('/get-pdf', methods=['GET', 'POST'])
+def get_pdf():
+    if request.method == 'POST':
+        email = request.form.get('email')
+        if email:
+            with open('emails.txt', 'a') as f:
+                f.write(email + '\n')
+            return redirect(url_for('download_pdf'))
+    
+    html = '''
+    <html>
+    <head>
+        <title>Download PDF</title>
+        <style>
+            body {
+                font-family: Inter, sans-serif;
+                background-color: #f4f4f4;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+            }
+            .form-box {
+                background-color: white;
+                padding: 30px;
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(0,0,0,0.1);
+                text-align: center;
+            }
+            input[type="email"] {
+                padding: 10px;
+                width: 250px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+            }
+            input[type="submit"] {
+                padding: 10px 20px;
+                margin-top: 10px;
+                background-color: #00A1DA;
+                border: none;
+                color: white;
+                cursor: pointer;
+                border-radius: 4px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="form-box">
+            <h2>Get Your PDF Overview</h2>
+            <p>Enter your email to download the RS Automation overview:</p>
+            <form method="POST">
+                <input type="email" name="email" placeholder="you@company.com" required><br>
+                <input type="submit" value="Download PDF">
+            </form>
+        </div>
+    </body>
+    </html>
+    '''
+    return Response(html, mimetype='text/html')
 
+    
 def home():
     html = ''' 
     <!DOCTYPE html>
@@ -240,7 +300,7 @@ def home():
                     <h2>Get Started</h2>
                     <p>Select your preferred way to engage:</p>
                     <p><a href="https://calendly.com/ramirez-ricardo55/30min" target="_blank">📅 Schedule a Strategy Call</a></p>
-                    <a href="/static/RS_Automation_OnePager_Refined.pdf" download>📄 Download Our Overview PDF</a>
+                    <a href="/get-pdf">📄 Download Our Overview PDF</a>
                     <p><a href="/static/rs_template.xlsx" download>📂 Download Redacted Template</a></p>
                     <p>Email us directly: <a href="mailto:info@rsautomationep.com">info@rsautomationep.com</a></p>
                 </section>
