@@ -4,7 +4,7 @@ import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 # SMTP config for GoDaddy
-SMTP_SERVER = 'smtpout.secureserver.net'
+SMTP_SERVER = 'smtp.office365.com'
 SMTP_PORT = 465
 SMTP_USER = 'info@rsautomationep.com'  # <-- Replace with your email
 SMTP_PASS = os.getenv('SMTP_PASS')      # <-- Replace with password or use env vars
