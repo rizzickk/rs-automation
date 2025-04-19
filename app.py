@@ -387,7 +387,22 @@ def get_pdf():
 @app.route('/download')
 def download_pdf():
     return send_from_directory('static', 'RS_Automation_OnePager_Refined.pdf', as_attachment=True)
+@app.route('/admin/emails')
+def view_emails():
+    try:
+        conn = sqlite3.connect(DB_PATH)
+        c = conn.cursor()
+        c.execute("SELECT email, timestamp FROM emails ORDER BY timestamp DESC")
+        rows = c.fetchall()
+        conn.close()
 
+        html = "<h2>Stored Emails</h2><ul>"
+        for email, timestamp in rows:
+            html += f"<li>{email} — {timestamp}</li>"
+        html += "</ul>"
+        return Response(html, mimetype='text/html')
+    except Exception as e:
+        return Response(f"<p>Error: {e}</p>", mimetype='text/html')
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 10000))
     app.run(host='0.0.0.0', port=port)
