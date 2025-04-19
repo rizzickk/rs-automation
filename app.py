@@ -1,11 +1,13 @@
 from flask import Flask, Response, send_from_directory, request, redirect, url_for, flash
 import os
-
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
 # SMTP config for GoDaddy
 SMTP_SERVER = 'smtpout.secureserver.net'
 SMTP_PORT = 465
-SMTP_USER = 'your_email@yourdomain.com'  # <-- Replace with your email
-SMTP_PASS = 'your_password_here'         # <-- Replace with password or use env vars
+SMTP_USER = 'info@rsautomationep.com'  # <-- Replace with your email
+SMTP_PASS = os.getenv('SMTP_PASS')      # <-- Replace with password or use env vars
 
 
 app = Flask(__name__, static_folder='static')
@@ -269,6 +271,25 @@ def home():
 
 
     return Response(html, mimetype='text/html')
+
+
+def send_notification_email(submitted_email):
+    msg = MIMEMultipart()
+    msg['From'] = SMTP_USER
+    msg['To'] = SMTP_USER  # Send to yourself
+    msg['Subject'] = "New PDF Download Request"
+
+    body = f"A new user submitted their email: {submitted_email}"
+    msg.attach(MIMEText(body, 'plain'))
+
+    try:
+        with smtplib.SMTP_SSL(SMTP_SERVER, SMTP_PORT) as server:
+            server.login(SMTP_USER, SMTP_PASS)
+            server.sendmail(SMTP_USER, SMTP_USER, msg.as_string())
+        print("✅ Notification email sent.")
+    except Exception as e:
+        print(f"❌ Failed to send email: {e}")
+
 @app.route('/get-pdf', methods=['GET', 'POST'])
 
 def get_pdf():
