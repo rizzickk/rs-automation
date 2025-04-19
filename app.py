@@ -13,6 +13,7 @@ app.secret_key = os.getenv("FLASK_SECRET_KEY", "fallback_secret")
 
 
 @app.route('/')
+@app.route('/')
 @app.route('/get-pdf', methods=['GET', 'POST'])
 def get_pdf():
     if request.method == 'POST':
@@ -21,7 +22,9 @@ def get_pdf():
             with open('emails.txt', 'a') as f:
                 f.write(email + '\n')
             return redirect(url_for('download_pdf'))
-    
+
+    # HTML for email input form
+
     html = '''
     <html>
     <head>
@@ -73,7 +76,7 @@ def get_pdf():
     '''
     return Response(html, mimetype='text/html')
 
-    
+
 def home():
     html = ''' 
     <!DOCTYPE html>
@@ -335,15 +338,6 @@ def home():
 
 
     return Response(html, mimetype='text/html')
-
-@app.route('/submit-email', methods=['POST'])
-def submit_email():
-    email = request.form.get('email')
-    if email:
-        with open('emails.txt', 'a') as f:
-            f.write(email + '\n')
-        return redirect(url_for('download_pdf'))
-    return redirect(url_for('home'))
 
 @app.route('/download')
 def download_pdf():
