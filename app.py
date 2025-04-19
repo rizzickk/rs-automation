@@ -267,16 +267,14 @@ def home():
     </body>
     </html>
     '''
+ return Response(html, mimetype='text/html')
 
 
-
-# Your HTML content goes here
-@app.route('/')
-def home():
-    return Response(html, mimetype='text/html')
-
-# Route for PDF download
 @app.route('/download')
 def download_pdf():
     return send_from_directory(app.static_folder, 'RS_Automation_Overview.pdf', as_attachment=True)
 
+
+if __name__ == '__main__':
+    port = int(os.environ.get('PORT', 10000))
+    app.run(host='0.0.0.0', port=port)
