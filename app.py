@@ -13,6 +13,7 @@ app.secret_key = os.getenv("FLASK_SECRET_KEY", "fallback_secret")
 
 
 @app.route('/')
+
 def home():
     html = ''' 
     <!DOCTYPE html>
@@ -229,7 +230,11 @@ def home():
                     <p>📄 <strong>IT Documentation Available</strong> – We provide NDAs and technical specs for InfoSec review.</p>
                 </section>
             </div>
-
+            <form method="POST" action="/submit-email">
+                <input type="email" name="email" placeholder="Enter your email to download the overview" required style="padding: 8px; border-radius: 5px; border: none; width: 250px;">
+                <br><br>
+                <input type="submit" value="📄 Download PDF" style="padding: 8px 16px; background-color: #00A1DA; color: white; border: none; border-radius: 5px; cursor: pointer;">
+            </form>
             <div class="container-box" id="get-started">
                 <section class="centered-section">
                     <h2>Get Started</h2>
@@ -271,11 +276,19 @@ def home():
 
     return Response(html, mimetype='text/html')
 
+@app.route('/submit-email', methods=['POST'])
+def submit_email():
+    email = request.form.get('email')
+    if email:
+        with open('emails.txt', 'a') as f:
+            f.write(email + '\n')
+        return redirect(url_for('download_pdf'))
+    return redirect(url_for('home'))
+
 @app.route('/download')
 def download_pdf():
-    return send_from_directory('static', 'RS_Automation_Overview.pdf', as_attachment=True)
+    return send_from_directory('static', 'RS_Automation_OnePager_Refined.pdf', as_attachment=True)
 
 if __name__ == '__main__':
-    import os
     port = int(os.environ.get('PORT', 10000))
     app.run(host='0.0.0.0', port=port)
