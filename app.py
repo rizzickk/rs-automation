@@ -244,6 +244,18 @@ def home():
             opacity: 1;
             visibility: visible;
             }
+            /* Start every container hidden & shifted down */
+            .container-box {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+            }
+
+            /* When we add .visible, it comes into place */
+            .container-box.visible {
+            opacity: 1;
+            transform: translateY(0);
+            }
         </style>
     </head>
     <body>
@@ -337,10 +349,19 @@ def home():
         <div>
         <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // After 1.5s, show the wrapper…
             setTimeout(() => {
-            document.getElementById('delayed-content')
-                    .classList.add('visible');
-            }, 2000);
+            const wrapper = document.getElementById('delayed-content');
+            wrapper.classList.add('visible');
+
+            // …then stagger each .container-box
+            const boxes = wrapper.querySelectorAll('.container-box');
+            boxes.forEach((el, i) => {
+                setTimeout(() => {
+                el.classList.add('visible');
+                }, i * 500 + 500);  // 0.5s apart, starting half‑second in
+            });
+            }, 1500);
         });
         </script>
     </body>
