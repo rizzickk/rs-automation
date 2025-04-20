@@ -87,72 +87,41 @@ def home():
                 box-sizing: border-box;
                 z-index: 999;
             }
-            @media (max-width: 480px) {
-            /* Shrink your contact bar as before… */
+           @media (max-width: 480px) {
+            /* 1) Shrink your contact bar */
             .contact-bar {
                 font-size: 0.75rem;
                 padding: 6px 15px;
             }
-
-            /* Wipe out the gradient+image and set a flat color */
-            body {
-                background: #002147 !important;
-            }
-
-            /* Icons and links… */
             .contact-bar i,
             .contact-bar a {
                 font-size: inherit;
             }
 
-            /* Ribbon as the background of the .visual_in section */
-            .visual_in {
-            /* Ribbon as a mobile‑only background */
-            background-image: url('/static/background.jpg');
-            background-repeat: no-repeat;
-            background-position: center top;
-            background-size: contain;
-
-            /* Make space for it */
-            width: 100%;
-            height: 150px;          /* ← match your ribbon’s pixel height */
-            display: flex;          /* so we can center the text over it */
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-
-            /* Push the real text down if needed */
-            padding-top: 0;         /* already vertically centered by flexbox */
+            /* 2) Stack the ribbon image over a solid navy fill */
+            body {
+                background:
+                url('/static/background.jpg') no-repeat top center,
+                #002147;
+                background-size: auto 150px, cover;   /* ribbon is 150px tall */
+                padding-top: 150px;                   /* push content below the ribbon */
             }
 
-            .visual_in .txt,
-            .visual_in .tit,
-            .visual_in .stxt {
+            /* 3) Make your header and other panels transparent so the ribbon shows through */
+            .header,
+            .visual_in,
+            .container-box {
+                background-color: transparent !important;
+                box-shadow: none !important;
+            }
+
+            /* 4) Re‑color header text for contrast */
+            .header * {
+                color: white !important;
                 position: relative;
                 z-index: 1;
-                color: white;           /* ensure contrast over the ribbon */
             }
-            /* Ribbon on the header for phones */
-            .header {
-            background-image: url('/static/background.jpg');
-            background-repeat: no-repeat;
-            background-position: center top;
-            background-size: contain;
-            width: 100%;
-            height: 150px;            /* adjust to your ribbon’s height */
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
             }
-            /* Ensure header text sits above the ribbon */
-            .header * {
-            position: relative;
-            z-index: 1;
-            color: white;             /* or another contrasting color */
-            }
-
-        }
             .main-wrapper {
                 padding-top: 80px;
             }
