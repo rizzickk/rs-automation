@@ -351,44 +351,44 @@ def get_pdf():
 <head>
     <meta charset="UTF-8">
     <title>Thank You</title>
-    <script>
-        setTimeout(function() {{
-            window.location.href = "{url_for('download_pdf')}";
-        }}, 2000);
-    </script>
-    <style>
-        body {{
-            font-family: Inter, sans-serif;
-            background-color: #f4f4f4;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }}
-        .message-box {{
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            text-align: center;
-        }}
-        @media (max-width: 480px) {
-            .form-box {
-                width: 90%;
-                padding: 20px;
-            }
-            input[type="email"],
-            input[type="submit"] {
-                width: 100%;
-            }
-            .form-box h2 {
-                font-size: 1.5rem;
-            }
-            body {
-                padding: 10px;
-            }
-        }
-    </style>
+        <script>
+            setTimeout(function() {{{{
+                window.location.href = "{url_for('download_pdf')}";
+            }}}}, 2000);
+        </script>
+        <style>
+            body {{{{
+                font-family: Inter, sans-serif;
+                background-color: #f4f4f4;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+            }}}}
+            .message-box {{{{
+                background-color: white;
+                padding: 30px;
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(0,0,0,0.1);
+                text-align: center;
+            }}}}
+            @media (max-width: 480px) {{{{
+                .form-box {{{{
+                    width: 90%;
+                    padding: 20px;
+                }}}}
+                input[type="email"],
+                input[type="submit"] {{{{
+                    width: 100%;
+                }}}}
+                .form-box h2 {{{{
+                    font-size: 1.5rem;
+                }}}}
+                body {{{{
+                    padding: 10px;
+                }}}}
+            }}}}
+        </style>
 </head>
 <body>
     <div class="message-box">
