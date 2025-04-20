@@ -64,6 +64,12 @@ def home():
         <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
         <style>
+            }
+            @media (max-width: 480px) {
+            body {
+                background-color: #002147;   /* a dark navy */
+            }
+            }
             body {
                 font-family: 'Inter', sans-serif;
                 margin: 0;
@@ -74,12 +80,7 @@ def home():
                 background-size: cover;
                 background-position: center;
                 background-attachment: fixed;
-            }
-            @media (max-width: 480px) {
-            body {
-                background-color: #002147;   /* a dark navy */
-            }
-            }
+
             .contact-bar {
                 width: 100%;
                 position: fixed;
