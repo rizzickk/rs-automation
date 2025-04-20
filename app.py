@@ -338,19 +338,10 @@ def get_pdf():
 <head>
     <meta charset="UTF-8">
     <title>Thank You</title>
-        <script>
-            // Trigger download via a hidden iframe (avoids popup blockers)
-            (function() {
-                var iframe = document.createElement('iframe');
-                iframe.style.display = 'none';
-                iframe.src = '/download';
-                document.body.appendChild(iframe);
-            })();
-            // After 5s, redirect back home
-            setTimeout(function() {
-                window.location.href = "/";
-            }, 5000);
-        </script>
+    <script>
+        window.open("/download", "_blank");
+        setTimeout(function() { window.location.href = "/"; }, 5000);
+    </script>
     <style>
         body { font-family: Inter, sans-serif; background-color: #f4f4f4; display: flex; align-items: center; justify-content: center; height: 100vh; }
         .message-box { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); text-align: center; }
