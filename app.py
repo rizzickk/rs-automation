@@ -64,12 +64,6 @@ def home():
         <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
         <style>
-            }
-            @media (max-width: 480px) {
-            body {
-                background-color: #002147;   /* a dark navy */
-            }
-            }
             body {
                 font-family: 'Inter', sans-serif;
                 margin: 0;
@@ -97,6 +91,10 @@ def home():
             .contact-bar {
                 font-size: 0.75rem;    /* or whatever smaller size you prefer */
                 padding: 6px 15px;     /* you can tighten the padding too */
+            }
+            body {
+                background-color: #002147;   /* a dark navy */
+                background-image: none;      /* remove the background image */
             }
             .contact-bar i,       /* shrink icons if needed */
             .contact-bar a {
