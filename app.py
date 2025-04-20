@@ -92,6 +92,8 @@ def home():
             .contact-bar {
                 font-size: 0.75rem;
                 padding: 6px 15px;
+                justify-content: center;
+                text-align: center;
             }
             .contact-bar i,
             .contact-bar a {
@@ -264,6 +266,22 @@ def home():
             opacity: 1;
             transform: translateY(0);
             }
+            .ribbon-banner {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 160px;  /* match your ribbon height */
+            background: url('/static/ribbon-mobile.png') no-repeat center top;
+            background-size: cover;
+            z-index: 0;
+            transition: transform 0.4s ease;
+            }
+
+            /* Hidden state: slide ribbon out of view */
+            .ribbon-banner.hide {
+            transform: translateY(-100%);
+            }
         </style>
     </head>
     <body>
@@ -273,7 +291,7 @@ def home():
                 <i class="fas fa-phone"></i> <a href="tel:+19154785436">(915) 478-5436</a>
             </p>
         </div>
-    
+    <div id="ribbon-banner" class="ribbon-banner"></div>
         <div id="delayed-content" class="delayed-content">
         <div class="main-wrapper">
             <div class="container-box">
@@ -370,6 +388,24 @@ def home():
                 }, i * 1500 + 1500);  // 0.5s apart, starting half‑second in
             });
             }, 0);
+        });
+        </script>
+        <script>
+        let lastScrollTop = 0;
+        const ribbon = document.getElementById('ribbon-banner');
+
+        window.addEventListener('scroll', () => {
+            const st = window.pageYOffset || document.documentElement.scrollTop;
+
+            if (st > lastScrollTop) {
+            // Scrolling down
+            ribbon.classList.add('hide');
+            } else {
+            // Scrolling up
+            ribbon.classList.remove('hide');
+            }
+
+            lastScrollTop = st <= 0 ? 0 : st;
         });
         </script>
     </body>
