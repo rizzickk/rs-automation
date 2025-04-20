@@ -87,8 +87,8 @@ def home():
                 box-sizing: border-box;
                 z-index: 999;
             }
-           @media (max-width: 480px) {
-            /* 1) Shrink your contact bar */
+            @media (max-width: 480px) {
+            /* 1. Shrink contact bar */
             .contact-bar {
                 font-size: 0.75rem;
                 padding: 6px 15px;
@@ -98,28 +98,19 @@ def home():
                 font-size: inherit;
             }
 
-            /* 2) Stack the ribbon image over a solid navy fill */
+            /* 2. Set full-page background with ribbon image at top */
             body {
                 background:
-                url('/static/background.jpg') no-repeat top center,
+                url('/static/ribbon-mobile.png') no-repeat top center,
                 #002147;
-                background-size: auto 150px, cover;   /* ribbon is 150px tall */
-                padding-top: 150px;                   /* push content below the ribbon */
+                background-size: 100% auto, cover;
+                background-repeat: no-repeat;
+                background-attachment: scroll;
             }
 
-            /* 3) Make your header and other panels transparent so the ribbon shows through */
-            .header,
-            .visual_in,
-            .container-box {
-                background-color: transparent !important;
-                box-shadow: none !important;
-            }
-
-            /* 4) Re‑color header text for contrast */
-            .header * {
-                color: white !important;
-                position: relative;
-                z-index: 1;
+            /* 3. Push entire page content down to reveal ribbon behind first box */
+            .main-wrapper {
+                padding-top: 160px; /* matches the ribbon height */
             }
             }
             .main-wrapper {
