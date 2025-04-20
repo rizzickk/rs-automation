@@ -340,10 +340,7 @@ def home():
             <div class="container-box">
                 <section class="centered-section">
                     <h2>Deployment Options</h2>
-                    <p>📁 <strong>Redacted Sample Upload</strong> – Send redacted files for initial assessment.</p>
-                    <p>🛰️ <strong>Secure Remote Access</strong> – We work via Citrix, VPN, or remote desktop within your network.</p>
-                    <p>🏢 <strong>In-Environment Setup</strong> – We install scripts directly inside your environment, no data ever leaves your infrastructure.</p>
-                    <p>📄 <strong>IT Documentation Available</strong> – We provide NDAs and technical specs for InfoSec review.</p>
+                    <img src="/static/deployment-options.jpg" alt="Deployment Options Overview" style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.3);">
                 </section>
             </div>
             <div class="container-box" id="get-started">
