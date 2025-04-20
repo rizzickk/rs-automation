@@ -340,7 +340,7 @@ def get_pdf():
     <title>Thank You</title>
     <script>
         window.open("/download", "_blank");
-        setTimeout(function() { window.location.href = "/"; }, 1500);
+        setTimeout(function() { window.location.href = "/"; }, 5000);
     </script>
     <style>
         body { font-family: Inter, sans-serif; background-color: #f4f4f4; display: flex; align-items: center; justify-content: center; height: 100vh; }
