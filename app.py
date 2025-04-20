@@ -108,7 +108,7 @@ def home():
             /* Ribbon as the background of the .visual_in section */
             .visual_in {
             /* Ribbon as a mobile‑only background */
-            background-image: url('/static/ribbon-mobile.png');
+            background-image: url('/static/background.jpg');
             background-repeat: no-repeat;
             background-position: center top;
             background-size: contain;
@@ -123,15 +123,34 @@ def home():
 
             /* Push the real text down if needed */
             padding-top: 0;         /* already vertically centered by flexbox */
-        }
+            }
 
-        .visual_in .txt,
-        .visual_in .tit,
-        .visual_in .stxt {
+            .visual_in .txt,
+            .visual_in .tit,
+            .visual_in .stxt {
+                position: relative;
+                z-index: 1;
+                color: white;           /* ensure contrast over the ribbon */
+            }
+            /* Ribbon on the header for phones */
+            .header {
+            background-image: url('/static/background.jpg');
+            background-repeat: no-repeat;
+            background-position: center top;
+            background-size: contain;
+            width: 100%;
+            height: 150px;            /* adjust to your ribbon’s height */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            }
+            /* Ensure header text sits above the ribbon */
+            .header * {
             position: relative;
             z-index: 1;
-            color: white;           /* ensure contrast over the ribbon */
-        }
+            color: white;             /* or another contrasting color */
+            }
 
         }
             .main-wrapper {
@@ -390,7 +409,7 @@ def home():
                 el.classList.add('visible');
                 }, i * 1500 + 1500);  // 0.5s apart, starting half‑second in
             });
-            }, 300);
+            }, 0);
         });
         </script>
     </body>
