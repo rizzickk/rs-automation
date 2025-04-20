@@ -310,11 +310,13 @@ def home():
             /* Mobile view override */
             @media (max-width: 480px) {
                 .deployment-img-inner {
-                    width: 100%;
-                    border-radius: 0;
-                    box-shadow: none;
-                }
+                width: 110%;
+                border-radius: 0;
+                box-shadow: none;
+                transform: scale(1.1);
+                transform-origin: center;
             }
+        }
         </style>
     </head>
     <body>
