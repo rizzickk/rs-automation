@@ -239,7 +239,7 @@ def home():
             </div>
 
             <div class="container-box" id="how-it-works">
-                <section class="centered-section">
+                <section>
                     <h2>How We Work With You</h2>
                     <div class="icon-service-grid">
                         <div class="icon-service-item">
