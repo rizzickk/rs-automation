@@ -337,11 +337,12 @@ def home():
                 </section>
             </div>
 
-            <div class="container-box">
-                <section class="centered-section">
-                    <img src="/static/Deployment-Options.jpg" alt="Deployment Options Overview" style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.3); display: block; margin: 0 auto;">
-                </section>
-            </div>
+            <section style="text-align: center; margin: 40px auto;">
+                <img 
+                    src="/static/Deployment-Options.png" 
+                    alt="Deployment Options Overview"
+                    style="width: 90%; max-width: 1000px; height: auto; display: block; margin: 0 auto;">
+            </section>
             <div class="container-box" id="get-started">
                 <section class="centered-section">
                     <h2>Get Started</h2>
