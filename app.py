@@ -75,6 +75,11 @@ def home():
                 background-position: center;
                 background-attachment: fixed;
             }
+            @media (max-width: 480px) {
+            body {
+                background-color: #002147;   /* a dark navy */
+            }
+            }
             .contact-bar {
                 width: 100%;
                 position: fixed;
