@@ -282,6 +282,39 @@ def home():
             .ribbon-banner.hide {
             transform: translateY(-100%);
             }
+            /* Fix image block alignment */
+            .deployment-img {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                margin: 40px auto;
+                box-sizing: border-box;
+            }
+
+            /* Desktop styling */
+            .deployment-img-inner {
+                width: 90%;
+                max-width: 1000px;
+                border-radius: 16px;
+                box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+                transition: transform 0.3s ease;
+                display: block;
+            }
+
+            /* Hover effect (optional) */
+            .deployment-img-inner:hover {
+                transform: translateY(-4px);
+            }
+
+            /* Mobile view override */
+            @media (max-width: 480px) {
+                .deployment-img-inner {
+                    width: 100%;
+                    border-radius: 0;
+                    box-shadow: none;
+                }
+            }
         </style>
     </head>
     <body>
@@ -337,12 +370,12 @@ def home():
                 </section>
             </div>
 
-        <section style="width: 100%; margin: 0; padding: 0;">
-            <img 
-                src="/static/Deployment-Options.jpg" 
-                alt="Deployment Options Overview"
-                style="width: 100%; height: auto; display: block;">
-        </section>
+            <section class="deployment-img">
+                <img 
+                    src="/static/deployment-options.png" 
+                    alt="Deployment Options"
+                    class="deployment-img-inner">
+            </section>
             <div class="container-box" id="get-started">
                 <section class="centered-section">
                     <h2>Get Started</h2>
