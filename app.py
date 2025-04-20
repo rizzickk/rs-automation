@@ -359,9 +359,9 @@ def home():
             boxes.forEach((el, i) => {
                 setTimeout(() => {
                 el.classList.add('visible');
-                }, i * 500 + 500);  // 0.5s apart, starting half‑second in
+                }, i * 1500 + 1500);  // 0.5s apart, starting half‑second in
             });
-            }, 1500);
+            }, 1000);
         });
         </script>
     </body>
