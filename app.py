@@ -338,15 +338,16 @@ def get_pdf():
         except Exception as e:
             print(f"❌ Error storing email: {e}")
 
-        return Response(f'''
+    return Response(f'''
 <html>
 <head>
     <meta charset="UTF-8">
     <title>Thank You</title>
     <script>
+        window.open("{url_for('download_pdf')}", "_blank");
         setTimeout(function() {{
-            window.location.href = "{url_for('download_pdf')}";
-        }}, 2000);
+            window.location.href = "/";
+        }}, 500);
     </script>
     <style>
         body {{
