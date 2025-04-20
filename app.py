@@ -338,10 +338,27 @@ def get_pdf():
 <head>
     <meta charset="UTF-8">
     <title>Thank You</title>
-    <script>
-        window.open("/download", "_blank");
-        setTimeout(function() { window.location.href = "/"; }, 5000);
-    </script>
+   <script>
+  // Fetch the PDF as a blob, then trigger a download
+  fetch('/download')
+    .then(resp => {
+      if (!resp.ok) throw new Error('Network response was not ok');
+      return resp.blob();
+    })
+    .then(blob => {
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.style.display = 'none';
+      a.href = url;
+      a.download = 'RS_Automation_Overview.pdf';
+      document.body.appendChild(a);
+      a.click();
+      window.URL.revokeObjectURL(url);
+    })
+    .catch(err => console.error('Download failed:', err));
+  // After 5 seconds, redirect back home
+  setTimeout(() => window.location.href = '/', 5000);
+</script>
     <style>
         body { font-family: Inter, sans-serif; background-color: #f4f4f4; display: flex; align-items: center; justify-content: center; height: 100vh; }
         .message-box { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); text-align: center; }
