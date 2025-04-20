@@ -107,24 +107,32 @@ def home():
 
             /* Ribbon as the background of the .visual_in section */
             .visual_in {
-                background-image: url('/static/background.jpg');
-                background-repeat: no-repeat;
-                background-position: center top;
-                background-size: contain;
-                /* Make room for the ribbon */
-                padding-top: 120px;     /* adjust this to match your ribbon’s height */
-                text-align: center;
-                position: relative;
-            }
+            /* Ribbon as a mobile‑only background */
+            background-image: url('/static/ribbon-mobile.png');
+            background-repeat: no-repeat;
+            background-position: center top;
+            background-size: contain;
 
-            /* Ensure the text stays on top of the ribbon */
-            .visual_in .txt,
-            .visual_in .tit,
-            .visual_in .stxt {
-                position: relative;
-                z-index: 1;
-                color: white;           /* or another contrasting color */
-            }
+            /* Make space for it */
+            width: 100%;
+            height: 150px;          /* ← match your ribbon’s pixel height */
+            display: flex;          /* so we can center the text over it */
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            /* Push the real text down if needed */
+            padding-top: 0;         /* already vertically centered by flexbox */
+        }
+
+        .visual_in .txt,
+        .visual_in .tit,
+        .visual_in .stxt {
+            position: relative;
+            z-index: 1;
+            color: white;           /* ensure contrast over the ribbon */
+        }
+
         }
             .main-wrapper {
                 padding-top: 80px;
