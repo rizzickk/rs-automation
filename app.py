@@ -293,9 +293,9 @@ def home():
                     <p class="about-text">
                         RS Automation was founded to help institutions like yours automate repetitive tasks, ensure compliance readiness, and unlock bandwidth for strategic thinking — all without compromising data integrity or requiring heavy internal lift.
                     </p>
-                    <h3 style="color:#00A1DA;">Our Mission</h3>
+                    <h3 style="color:#00A1DA; text-align: center;">Our Mission</h3>
                     <p class="about-text">To eliminate manual reporting and reduce compliance risk by delivering secure, audit-ready automation tailored for financial institutions.</p>
-                    <h3 style="color:#00A1DA;">Our Vision</h3>
+                    <h3 style="color:#00A1DA; text-align: center;">Our Vision</h3>
                     <p class="about-text">To become the most trusted automation partner for regulated institutions by making reporting effortless, accurate, and built for tomorrow’s audit.</p>
                 </section>
             </div>
