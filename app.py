@@ -39,8 +39,8 @@ def store_email(email):
 #     else:
 #         df_combined = df_new
 
-    df_combined.to_excel(excel_path, index=False)
-    print("✅ Email appended to Excel")
+    # df_combined.to_excel(excel_path, index=False)
+    # print("✅ Email appended to Excel")
 
 
 # SMTP config for Microsoft 365
