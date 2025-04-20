@@ -372,7 +372,7 @@ def home():
 
             <section class="deployment-img">
                 <img 
-                    src="/static/deployment-options.png" 
+                    src="/static/Deployment-Options.jpg" 
                     alt="Deployment Options"
                     class="deployment-img-inner">
             </section>
