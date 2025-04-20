@@ -344,10 +344,10 @@ def get_pdf():
     <meta charset="UTF-8">
     <title>Thank You</title>
     <script>
-        window.open("{url_for('download_pdf')}", "_blank");
+        window.open("/download", "_blank");
         setTimeout(function() {{
             window.location.href = "/";
-        }}, 500);
+        }}, 2000);
     </script>
     <style>
         body {{
