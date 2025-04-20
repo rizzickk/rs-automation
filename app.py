@@ -361,7 +361,7 @@ def home():
                 el.classList.add('visible');
                 }, i * 1500 + 1500);  // 0.5s apart, starting half‑second in
             });
-            }, 1000);
+            }, 300);
         });
         </script>
     </body>
