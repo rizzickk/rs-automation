@@ -88,12 +88,6 @@ def home():
                 z-index: 999;
             }
             @media (max-width: 480px) {
-            {
-            .deployment-img-inner {
-                width: 100%;
-                border-radius: 0;
-                box-shadow: none;
-            }
             /* 1. Shrink contact bar */
             .contact-bar {
                 font-size: 0.75rem;
@@ -226,25 +220,6 @@ def home():
                 color: #00A1DA;
                 margin-bottom: 10px;
             }
-            .deployment-img {
-                width: 100%;
-                display: flex;
-                justify-content: center;
-                margin: 40px 0;
-            }
-
-            .deployment-img-inner {
-                width: 90%;
-                max-width: 1000px;
-                border-radius: 16px;
-                box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
-                transition: transform 0.3s ease;
-            }
-
-            /* Optional: slight hover pop for depth */
-            .deployment-img-inner:hover {
-                transform: translateY(-4px);
-            }
             .cta {
                 background-color: rgba(255, 255, 255, 0.1);
                 padding: 25px;
@@ -362,12 +337,12 @@ def home():
                 </section>
             </div>
 
-            <section class="deployment-img">
-                <img 
-                    src="/static/Deployment-Options.jpg" 
-                    alt="Deployment Options"
-                    class="deployment-img-inner">
-            </section>
+        <section style="width: 100%; margin: 0; padding: 0;">
+            <img 
+                src="/static/Deployment-Options.jpg" 
+                alt="Deployment Options Overview"
+                style="width: 100%; height: auto; display: block;">
+        </section>
             <div class="container-box" id="get-started">
                 <section class="centered-section">
                     <h2>Get Started</h2>
