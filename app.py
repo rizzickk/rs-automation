@@ -323,69 +323,33 @@ def home():
 
 
 @app.route('/get-pdf', methods=['GET', 'POST'])
-
 def get_pdf():
-    print("DEBUG: Reached /get-pdf")
-    print(f"Request method: {request.method}")
     if request.method == 'POST':
+        app.logger.debug("Reached /get-pdf POST")
         email = request.form.get('email')
-        print(f"Email received: {email}")        # check email value
+        app.logger.debug(f"Email received: {email}")
         try:
-
             store_email(email)
-            # append_email_to_excel(email)
-            # send_notification_email(email)
         except Exception as e:
-            print(f"❌ Error storing email: {e}")
+            app.logger.error(f"Error storing email: {e}")
 
-        return Response(f'''
+        thank_you_html = '''
 <html>
 <head>
     <meta charset="UTF-8">
     <title>Thank You</title>
-        <script>
-            window.open("/download", "_blank");
-        </script>
-        <style>
-            body {{{{
-                font-family: Inter, sans-serif;
-                background-color: #f4f4f4;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 100vh;
-            }}}}
-            .message-box {{{{
-                background-color: white;
-                padding: 30px;
-                border-radius: 10px;
-                box-shadow: 0 0 10px rgba(0,0,0,0.1);
-                text-align: center;
-            }}}}
-            @media (max-width: 480px) {{{{
-                .form-box {{{{
-                    width: 90%;
-                    padding: 20px;
-                }}}}
-                input[type="email"],
-                input[type="submit"] {{{{
-                    width: 100%;
-                }}}}
-                .form-box h2 {{{{
-                    font-size: 1.5rem;
-                }}}}
-                body {{{{
-                    padding: 10px;
-                }}}}
-                .form-box p,
-                .message-box p,
-                .centered-section p,
-                .about-text {
-                    text-align: left !important;
-                    text-align-last: left !important;
-                }
-            }}}}
-        </style>
+    <script>
+        window.open("/download", "_blank");
+        setTimeout(function() { window.location.href = "/"; }, 1500);
+    </script>
+    <style>
+        body { font-family: Inter, sans-serif; background-color: #f4f4f4; display: flex; align-items: center; justify-content: center; height: 100vh; }
+        .message-box { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); text-align: center; }
+        @media (max-width: 480px) {
+            body { padding: 10px; }
+            .message-box p { text-align: left !important; }
+        }
+    </style>
 </head>
 <body>
     <div class="message-box">
@@ -394,84 +358,41 @@ def get_pdf():
     </div>
 </body>
 </html>
-''', mimetype='text/html')
+'''
+        return Response(thank_you_html, mimetype='text/html')
 
-    # HTML for email input form
-
-    html = '''
-    <html>
-    <head>
-        <title>Download PDF</title>
-        <style>
-            body {
-                font-family: Inter, sans-serif;
-                background-color: #f4f4f4;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 100vh;
-            }
-            .form-box {
-                background-color: white;
-                padding: 30px;
-                border-radius: 10px;
-                box-shadow: 0 0 10px rgba(0,0,0,0.1);
-                text-align: center;
-            }
-            input[type="email"] {
-                padding: 10px;
-                width: 250px;
-                border: 1px solid #ccc;
-                border-radius: 4px;
-            }
-            input[type="submit"] {
-                padding: 10px 20px;
-                margin-top: 10px;
-                background-color: #00A1DA;
-                border: none;
-                color: white;
-                cursor: pointer;
-                border-radius: 4px;
-            }
+    # GET: display the email capture form
+    form_html = '''
+<html>
+<head>
+    <title>Download PDF</title>
+    <style>
+        body { font-family: Inter, sans-serif; background-color: #f4f4f4; display: flex; align-items: center; justify-content: center; height: 100vh; }
+        .form-box { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); text-align: center; }
+        input[type="email"] { padding: 10px; width: 250px; border: 1px solid #ccc; border-radius: 4px; }
+        input[type="submit"] { padding: 10px 20px; margin-top: 10px; background-color: #00A1DA; border: none; color: white; cursor: pointer; border-radius: 4px; }
         @media (max-width: 480px) {
-            .form-box {
-                width: 90%;
-                padding: 20px;
-            }
-            input[type="email"],
-            input[type="submit"] {
-                width: 100%;
-            }
-            .form-box h2 {
-                font-size: 1.5rem;
-            }
-            body {
-                padding: 10px;
-            }
-            .form-box p,
-            .message-box p,
-            .centered-section p,
-            .about-text {
-                text-align: left !important;
-                text-align-last: left !important;
-            }
+            body { padding: 10px; }
+            .form-box { width: 90%; padding: 20px; }
+            input { width: 100%; }
+            .form-box p { text-align: left !important; }
         }
-        </style>
-    </head>
-    <body>
-        <div class="form-box">
-            <h2>Get Your PDF Overview</h2>
-            <p>Enter your email to download the RS Automation overview:</p>
-            <form method="POST">
-                <input type="email" name="email" placeholder="you@company.com" required><br>
-                <input type="submit" value="Download PDF">
-            </form>
-            <p style="margin-top:20px;"><a href="/" style="color:#00A1DA;">← Back to RS Automation</a></p>
-        </div>
-    </body>
-    </html>
-    '''
-    return Response(html, mimetype='text/html')
+    </style>
+</head>
+<body>
+    <div class="form-box">
+        <h2>Get Your PDF Overview</h2>
+        <p>Enter your email to download the RS Automation overview:</p>
+        <form method="POST">
+            <input type="email" name="email" placeholder="you@company.com" required><br>
+            <input type="submit" value="Download PDF">
+        </form>
+        <p style="margin-top:20px;"><a href="/" style="color:#00A1DA;">← Back to RS Automation</a></p>
+    </div>
+</body>
+</html>
+'''
+    return Response(form_html, mimetype='text/html')
 @app.route('/download')
 def download_pdf():
     try:
@@ -500,6 +421,7 @@ def view_emails():
         return Response(html, mimetype='text/html')
     except Exception as e:
         return Response(f"<p>Error: {e}</p>", mimetype='text/html')
+
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 10000))
     app.run(host='0.0.0.0', port=port)
