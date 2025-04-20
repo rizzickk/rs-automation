@@ -107,7 +107,7 @@ def home():
 
             /* Ribbon as the background of the .visual_in section */
             .visual_in {
-                background-image: url('/static/background.png');
+                background-image: url('/static/background.jpg');
                 background-repeat: no-repeat;
                 background-position: center top;
                 background-size: contain;
