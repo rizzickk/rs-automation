@@ -387,6 +387,13 @@ def get_pdf():
                 body {{{{
                     padding: 10px;
                 }}}}
+                .form-box p,
+                .message-box p,
+                .centered-section p,
+                .about-text {
+                    text-align: left !important;
+                    text-align-last: left !important;
+                }
             }}}}
         </style>
 </head>
@@ -450,6 +457,13 @@ def get_pdf():
             }
             body {
                 padding: 10px;
+            }
+            .form-box p,
+            .message-box p,
+            .centered-section p,
+            .about-text {
+                text-align: left !important;
+                text-align-last: left !important;
             }
         }
         </style>
