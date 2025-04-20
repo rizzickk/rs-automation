@@ -476,7 +476,10 @@ def get_pdf():
     return Response(html, mimetype='text/html')
 @app.route('/download')
 def download_pdf():
-    return send_from_directory('static', 'RS_Automation_OnePager_Refined.pdf', as_attachment=True)
+    try:
+        return send_from_directory('static', 'RS_Automation_Overview.pdf', as_attachment=True)
+    except Exception as e:
+        return Response(f"<h3>Error: {e}</h3>", mimetype='text/html')
 
 @app.route('/admin/download-db')
 def download_db():
