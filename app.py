@@ -339,7 +339,7 @@ def home():
 
             <section style="text-align: center; margin: 40px auto;">
                 <img 
-                    src="/static/Deployment-Options.png" 
+                    src="/static/Deployment-Options.jpg" 
                     alt="Deployment Options Overview"
                     style="width: 90%; max-width: 1000px; height: auto; display: block; margin: 0 auto;">
             </section>
