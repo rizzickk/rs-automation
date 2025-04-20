@@ -236,7 +236,7 @@ def home():
             .delayed-content {
             opacity: 0;
             visibility: hidden;
-            transition: opacity 2s ease-in;
+            transition: opacity 1s ease-in;
             }
 
             /* When .visible is added, it fades in */
@@ -248,7 +248,7 @@ def home():
             .container-box {
             opacity: 0;
             transform: translateY(20px);
-            transition: opacity 0.2s ease, transform 0.2s ease;
+            transition: opacity 2s ease, transform 2s ease;
             }
 
             /* When we add .visible, it comes into place */
