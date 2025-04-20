@@ -104,9 +104,9 @@ def home():
             }
             .centered-section p {
                 margin: 12px auto;
-                text-align: justify;
+
                 text-align-last: center;
-                text-justify: inter-word;
+
                 max-width: 600px;
             }
             .header {
