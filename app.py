@@ -101,7 +101,7 @@ def home():
             /* 2. Set full-page background with ribbon image at top */
             body {
                 background:
-                url('/static/ribbon-mobile.png') no-repeat top center,
+                url('/static/background.jpg') no-repeat top center,
                 #002147;
                 background-size: 100% auto, cover;
                 background-repeat: no-repeat;
