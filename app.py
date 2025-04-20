@@ -87,6 +87,16 @@ def home():
                 box-sizing: border-box;
                 z-index: 999;
             }
+            @media (max-width: 480px) {
+            .contact-bar {
+                font-size: 0.75rem;    /* or whatever smaller size you prefer */
+                padding: 6px 15px;     /* you can tighten the padding too */
+            }
+            .contact-bar i,       /* shrink icons if needed */
+            .contact-bar a {
+                font-size: inherit;
+            }
+            }
             .main-wrapper {
                 padding-top: 80px;
             }
