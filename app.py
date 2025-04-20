@@ -248,7 +248,7 @@ def home():
             .container-box {
             opacity: 0;
             transform: translateY(20px);
-            transition: opacity 0.5s ease, transform 0.5s ease;
+            transition: opacity 0.2s ease, transform 0.2s ease;
             }
 
             /* When we add .visible, it comes into place */
