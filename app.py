@@ -285,14 +285,6 @@ def home():
 
             <div class="container-box">
                 <section>
-                    <h2 style="text-align: center;">About RS Automation</h2>
-                    <img src="/static/ricardo.jpg" alt="Ricardo Ramirez" class="profile-pic">
-                    <p class="about-text">
-                        I'm Ricardo Ramirez, founder of RS Automation — a solution born from years working inside a top 100 bank and other financial institutions where I lived the frustrations of manual reporting, compliance pressure, and inefficiencies firsthand.
-                    </p>
-                    <p class="about-text">
-                        RS Automation was founded to help institutions like yours automate repetitive tasks, ensure compliance readiness, and unlock bandwidth for strategic thinking — all without compromising data integrity or requiring heavy internal lift.
-                    </p>
                     <h3 style="color:#00A1DA; text-align: center;">Our Mission</h3>
                     <p class="about-text">To eliminate manual reporting and reduce compliance risk by delivering secure, audit-ready automation tailored for financial institutions.</p>
                     <h3 style="color:#00A1DA; text-align: center;">Our Vision</h3>
