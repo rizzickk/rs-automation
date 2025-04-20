@@ -74,7 +74,7 @@ def home():
                 background-size: cover;
                 background-position: center;
                 background-attachment: fixed;
-
+            }
             .contact-bar {
                 width: 100%;
                 position: fixed;
@@ -88,18 +88,22 @@ def home():
                 z-index: 999;
             }
             @media (max-width: 480px) {
-            .contact-bar {
-                font-size: 0.75rem;    /* or whatever smaller size you prefer */
-                padding: 6px 15px;     /* you can tighten the padding too */
-            }
-            body {
-                background-color: #002147;   /* a dark navy */
-                background-image: none;      /* remove the background image */
-            }
-            .contact-bar i,       /* shrink icons if needed */
-            .contact-bar a {
-                font-size: inherit;
-            }
+                /* Shrink your contact bar as before… */
+                .contact-bar {
+                    font-size: 0.75rem;
+                    padding: 6px 15px;
+                }
+
+                /* Wipe out the gradient+image and set a flat color */
+                body {
+                    background: #002147 !important;
+                }
+
+                /* Icons and links… */
+                .contact-bar i,
+                .contact-bar a {
+                    font-size: inherit;
+                }
             }
             .main-wrapper {
                 padding-top: 80px;
