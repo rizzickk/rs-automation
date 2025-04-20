@@ -236,7 +236,7 @@ def home():
             .delayed-content {
             opacity: 0;
             visibility: hidden;
-            transition: opacity 1s ease-in;
+            transition: opacity 2s ease-in;
             }
 
             /* When .visible is added, it fades in */
