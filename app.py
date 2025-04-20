@@ -372,6 +372,22 @@ def get_pdf():
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
             text-align: center;
         }}
+        @media (max-width: 480px) {
+            .form-box {
+                width: 90%;
+                padding: 20px;
+            }
+            input[type="email"],
+            input[type="submit"] {
+                width: 100%;
+            }
+            .form-box h2 {
+                font-size: 1.5rem;
+            }
+            body {
+                padding: 10px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -420,6 +436,22 @@ def get_pdf():
                 cursor: pointer;
                 border-radius: 4px;
             }
+        @media (max-width: 480px) {
+            .form-box {
+                width: 90%;
+                padding: 20px;
+            }
+            input[type="email"],
+            input[type="submit"] {
+                width: 100%;
+            }
+            .form-box h2 {
+                font-size: 1.5rem;
+            }
+            body {
+                padding: 10px;
+            }
+        }
         </style>
     </head>
     <body>
