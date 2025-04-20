@@ -225,6 +225,25 @@ def home():
             input[type="file"] {
                 margin-top: 10px;
             }
+            /* Banner stretches full‑width */
+            #banner {
+            width: 100%;
+            height: auto;
+            display: block;
+            }
+
+            /* Container for the content that will fade in */
+            .delayed-content {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 1s ease-in;
+            }
+
+            /* When .visible is added, it fades in */
+            .delayed-content.visible {
+            opacity: 1;
+            visibility: visible;
+            }
         </style>
     </head>
     <body>
@@ -234,7 +253,8 @@ def home():
                 <i class="fas fa-phone"></i> <a href="tel:+19154785436">(915) 478-5436</a>
             </p>
         </div>
-
+    
+        <div id="delayed-content" class="delayed-content">
         <div class="main-wrapper">
             <div class="container-box">
                 <header class="header">
@@ -314,6 +334,15 @@ def home():
                 © 2025 RS Automation. All rights reserved.
             </footer>
         </div>
+        <div>
+        <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+            document.getElementById('delayed-content')
+                    .classList.add('visible');
+            }, 2000);
+        });
+        </script>
     </body>
     </html>
     '''
