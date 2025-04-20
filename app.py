@@ -85,7 +85,14 @@ def home():
                 font-size: 0.9rem;
                 padding: 8px 30px;
                 box-sizing: border-box;
-                z-index: 999;
+                transition: transform 0.3s ease;
+                will-change: transform;
+                z-index: 1000; /* ensure it's always on top */
+                }
+
+            .contact-bar.hide {
+            transform: translateY(-100%);
+            }
             }
             @media (max-width: 480px) {
             /* 1. Shrink contact bar */
@@ -406,6 +413,24 @@ def home():
             }
 
             lastScrollTop = st <= 0 ? 0 : st;
+        });
+        </script>
+        <script>
+        let lastScrollY = window.scrollY;
+        const contactBar = document.querySelector('.contact-bar');
+
+        window.addEventListener('scroll', () => {
+            const currentY = window.scrollY;
+
+            if (currentY > lastScrollY) {
+            // Scrolling down
+            contactBar.classList.add('hide');
+            } else {
+            // Scrolling up
+            contactBar.classList.remove('hide');
+            }
+
+            lastScrollY = currentY <= 0 ? 0 : currentY;
         });
         </script>
     </body>
