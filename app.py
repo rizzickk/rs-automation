@@ -142,7 +142,7 @@ def home():
                 box-shadow: 0 0 8px rgba(0,0,0,0.4);
             }
             .about-text {
-                text-align: justify;
+                text-align: center;
                 text-align-last: center;
                 max-width: 600px;
                 margin: 0 auto;
