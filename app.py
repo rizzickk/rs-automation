@@ -88,23 +88,44 @@ def home():
                 z-index: 999;
             }
             @media (max-width: 480px) {
-                /* Shrink your contact bar as before… */
-                .contact-bar {
-                    font-size: 0.75rem;
-                    padding: 6px 15px;
-                }
-
-                /* Wipe out the gradient+image and set a flat color */
-                body {
-                    background: #002147 !important;
-                }
-
-                /* Icons and links… */
-                .contact-bar i,
-                .contact-bar a {
-                    font-size: inherit;
-                }
+            /* Shrink your contact bar as before… */
+            .contact-bar {
+                font-size: 0.75rem;
+                padding: 6px 15px;
             }
+
+            /* Wipe out the gradient+image and set a flat color */
+            body {
+                background: #002147 !important;
+            }
+
+            /* Icons and links… */
+            .contact-bar i,
+            .contact-bar a {
+                font-size: inherit;
+            }
+
+            /* Ribbon as the background of the .visual_in section */
+            .visual_in {
+                background-image: url('/static/ribbon-mobile.png');
+                background-repeat: no-repeat;
+                background-position: center top;
+                background-size: contain;
+                /* Make room for the ribbon */
+                padding-top: 120px;     /* adjust this to match your ribbon’s height */
+                text-align: center;
+                position: relative;
+            }
+
+            /* Ensure the text stays on top of the ribbon */
+            .visual_in .txt,
+            .visual_in .tit,
+            .visual_in .stxt {
+                position: relative;
+                z-index: 1;
+                color: white;           /* or another contrasting color */
+            }
+        }
             .main-wrapper {
                 padding-top: 80px;
             }
