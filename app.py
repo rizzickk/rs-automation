@@ -339,7 +339,7 @@ def home():
 
             <div class="container-box">
                 <section class="centered-section">
-                    <img src="/static/Deployment-Options.jpg" alt="Deployment Options Overview" style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.3);">
+                    <img src="/static/Deployment-Options.jpg" alt="Deployment Options Overview" style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.3); display: block; margin: 0 auto;">
                 </section>
             </div>
             <div class="container-box" id="get-started">
