@@ -334,52 +334,11 @@ def get_pdf():
             app.logger.error(f"Error storing email: {e}")
 
         thank_you_html = '''
-        <html>
-        <head>
-            <meta charset="UTF-8">
-            <title>Thank You</title>
-        <script>
-        // Fetch the PDF as a blob, then trigger a download
-        fetch('/download')
-            .then(resp => {
-            if (!resp.ok) throw new Error('Network response was not ok');
-            return resp.blob();
-            })
-            .then(blob => {
-            const url = window.URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.style.display = 'none';
-            a.href = url;
-            a.download = 'RS_Automation_Overview.pdf';
-            document.body.appendChild(a);
-            a.click();
-            window.URL.revokeObjectURL(url);
-            })
-            .catch(err => console.error('Download failed:', err));
-        // After 5 seconds, redirect back home
-        setTimeout(() => window.location.href = '/', 5000);
-        </script>
-            <style>
-                body { font-family: Inter, sans-serif; background-color: #f4f4f4; display: flex; align-items: center; justify-content: center; height: 100vh; }
-                .message-box { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); text-align: center; }
-                @media (max-width: 480px) {
-                    body { padding: 10px; }
-                    .message-box p { text-align: left !important; }
-                }
-            </style>
-        </head>
-        <body>
-            <div class="message-box">
-                <h2>Thanks for your submission!</h2>
-                <p>Your download will begin in a moment...</p>
-            </div>
-        </body>
-        </html>
-        '''
-        return Response(thank_you_html, mimetype='text/html')
-
-    # GET: display the email capture form
-    <script>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Thank You</title>
+   <script>
   // Fetch the PDF as a blob, then trigger a download
   fetch('/download')
     .then(resp => {
@@ -400,6 +359,56 @@ def get_pdf():
   // After 5 seconds, redirect back home
   setTimeout(() => window.location.href = '/', 5000);
 </script>
+    <style>
+        body { font-family: Inter, sans-serif; background-color: #f4f4f4; display: flex; align-items: center; justify-content: center; height: 100vh; }
+        .message-box { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); text-align: center; }
+        @media (max-width: 480px) {
+            body { padding: 10px; }
+            .message-box p { text-align: left !important; }
+        }
+    </style>
+</head>
+<body>
+    <div class="message-box">
+        <h2>Thanks for your submission!</h2>
+        <p>Your download will begin in a moment...</p>
+    </div>
+</body>
+</html>
+'''
+        return Response(thank_you_html, mimetype='text/html')
+
+    # GET: display the email capture form
+    form_html = '''
+<html>
+<head>
+    <title>Download PDF</title>
+    <style>
+        body { font-family: Inter, sans-serif; background-color: #f4f4f4; display: flex; align-items: center; justify-content: center; height: 100vh; }
+        .form-box { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); text-align: center; }
+        input[type="email"] { padding: 10px; width: 250px; border: 1px solid #ccc; border-radius: 4px; }
+        input[type="submit"] { padding: 10px 20px; margin-top: 10px; background-color: #00A1DA; border: none; color: white; cursor: pointer; border-radius: 4px; }
+        @media (max-width: 480px) {
+            body { padding: 10px; }
+            .form-box { width: 90%; padding: 20px; }
+            input { width: 100%; }
+            .form-box p { text-align: left !important; }
+        }
+    </style>
+</head>
+<body>
+    <div class="form-box">
+        <h2>Get Your PDF Overview</h2>
+        <p>Enter your email to download the RS Automation overview:</p>
+        <form method="POST">
+            <input type="email" name="email" placeholder="you@company.com" required><br>
+            <input type="submit" value="Download PDF">
+        </form>
+        <p style="margin-top:20px;"><a href="/" style="color:#00A1DA;">← Back to RS Automation</a></p>
+    </div>
+</body>
+</html>
+'''
     return Response(form_html, mimetype='text/html')
 @app.route('/download')
 def download_pdf():
