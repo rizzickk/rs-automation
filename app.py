@@ -240,7 +240,7 @@ def home():
 
             <div class="container-box" id="how-it-works">
                 <section>
-                    <h2>How We Work With You</h2>
+                    <h2 style="text-align: center;">How We Work With You</h2>
                     <div class="icon-service-grid">
                         <div class="icon-service-item">
                             <i class="fas fa-user-shield"></i>
