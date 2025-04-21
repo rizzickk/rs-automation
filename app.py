@@ -112,7 +112,7 @@ def home():
 
             /* 3. Push entire page content down to reveal ribbon behind first box */
             .main-wrapper {
-                padding-top: 160px; /* matches the ribbon height */
+                padding-top: 180px; /* matches the ribbon height */
             }
             }
             .main-wrapper {
@@ -310,10 +310,11 @@ def home():
             /* Mobile view override */
             @media (max-width: 480px) {
                 .deployment-img-inner {
-                width: 110%;
+                width: 100vw;
+                max-width: 100vw;
                 border-radius: 0;
                 box-shadow: none;
-                transform: scale(1.1);
+                transform: scale(1.05);
                 transform-origin: center;
             }
         }
