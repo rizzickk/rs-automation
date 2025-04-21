@@ -108,6 +108,7 @@ def home():
                 background-size: 100% auto, cover;
                 background-repeat: no-repeat;
                 background-attachment: scroll;
+                overflow-x: hidden;
             }
 
             /* 3. Push entire page content down to reveal ribbon behind first box */
@@ -314,7 +315,7 @@ def home():
                 max-width: 100vw;
                 border-radius: 0;
                 box-shadow: none;
-                transform: scale(1.05);
+                transform: scale(1.02);
                 transform-origin: center;
             }
         }
