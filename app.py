@@ -311,12 +311,8 @@ def home():
             /* Mobile view override */
             @media (max-width: 480px) {
                 .deployment-img-inner {
-                width: 100vw;
-                max-width: 100vw;
-                border-radius: 0;
-                box-shadow: none;
-                transform: scale(1.02);
-                transform-origin: center;
+                transform: scale(1.1);
+                transform-origin: center center;
             }
         }
         </style>
