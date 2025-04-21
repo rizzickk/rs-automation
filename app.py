@@ -374,6 +374,8 @@ def home():
                     alt="Deployment Options"
                     class="deployment-img-inner">
             </section>
+            
+            
             <div class="container-box" id="get-started">
                 <section class="centered-section">
                     <h2>Get Started</h2>
@@ -385,6 +387,45 @@ def home():
                 </section>
             </div>
 
+            <!-- Testimonial Carousel Section -->
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+            <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+            <div class="container-box" style="text-align: center;">
+            <h2 style="color: #00A1DA; margin-bottom: 20px;">What Our Clients Say</h2>
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <p style="font-size: 1.1rem; color: #eee;"><em>"RS Automation cut our reporting time by 90%. We now spend time analyzing, not formatting."</em><br>– VP of Risk, Regional Bank</p>
+                </div>
+                <div class="swiper-slide">
+                    <p style="font-size: 1.1rem; color: #eee;"><em>"We trusted them with a redacted file, and they returned a full working solution within days."</em><br>– Director, Lending Ops</p>
+                </div>
+                <div class="swiper-slide">
+                    <p style="font-size: 1.1rem; color: #eee;"><em>"Their automation scripts work right inside our secure environment. No compliance issues."</em><br>– Compliance Manager</p>
+                </div>
+                </div>
+                <div class="swiper-pagination" style="margin-top: 20px;"></div>
+            </div>
+            </div>
+
+            <script>
+            const swiper = new Swiper('.swiper-container', {
+                loop: true,
+                effect: 'fade',
+                fadeEffect: {
+                crossFade: true
+                },
+                autoplay: {
+                delay: 6000,
+                disableOnInteraction: false,
+                },
+                pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+                },
+            });
+            </script>
 
 
             <div class="container-box">
