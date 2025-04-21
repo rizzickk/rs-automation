@@ -312,6 +312,7 @@ def home():
             @media (max-width: 480px) {
                 .deployment-img-inner {
                 transform: scale(1.1);
+                width: 110%;
                 transform-origin: center center;
             }
         }
