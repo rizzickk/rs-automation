@@ -75,6 +75,13 @@ def home():
                 background-position: center;
                 background-attachment: fixed;
             }
+            html, body {
+            max-width: 100%;
+            overflow-x: hidden;
+            position: relative;
+            overscroll-behavior-x: none;
+            touch-action: pan-y;
+        }
             .contact-bar {
                 width: 100%;
                 position: fixed;
