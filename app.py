@@ -334,7 +334,7 @@ def home():
                     <img src="/static/logo.png" alt="RS Automation Logo">
                     <h1>RS Automation</h1>
                     <p class="tagline">Risk Reporting Automation</p>
-                    <p><strong>We help financial institutions eliminate manual reporting, flag risks faster, and pass audits with confidence. Anything you do in Excel, we can fully automate.</strong></p>
+                    <p><strong>Anything you do in Excel, we can fully automate. We help institutions eliminate manual reporting, flag risks faster, and pass audits with confidence.</strong></p>
                     <a href="#how-it-works">How It Works</a> | <a href="#get-started">Request a Demo</a>
                 </header>
             </div>
