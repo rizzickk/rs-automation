@@ -338,45 +338,35 @@ def home():
             <div class="container-box">
                 <header class="header">
                     <img src="/static/logo.png" alt="RS Automation Logo">
-                    <h1>RS Automation</h1>
-                    <p class="tagline">Risk Reporting Automation</p>
-                    <p><strong>Anything you do in Excel, we can fully automate. We help institutions eliminate manual reporting, flag risks faster, and pass audits with confidence.</strong></p>
-                    <a href="#how-it-works">How It Works</a> | <a href="#get-started">Request a Demo</a>
+                    <h1>We Turn Manual Excel Work Into Automated Reports</h1>
+                    <p><strong>Eliminate hours of manual work. Flag exceptions. Get audit-ready outputs weekly.</strong></p>
+                    <p style="font-size:0.9rem; color:#ccc;"><em>“Cut our reporting time by 90%.” – VP, Regional Lender</em></p>
+                    <div style="margin-top: 20px;">
+                        <a href="#get-started" class="cta-btn">📄 Download Overview</a>
+                        <a href="https://calendly.com/ramirez-ricardo55/30min" target="_blank" class="cta-btn">📅 Book Free Consult</a>
+                    </div>
                 </header>
             </div>
 
-            <div class="container-box">
-                <section class="centered-section">
-                    <h2>What We Help You Achieve</h2>
-                    <p>📉 <strong>Reduce manual hours</strong> spent on monthly reporting</p>
-                    <p>🚨 <strong>Automatically flag exceptions</strong> & risks</p>
-                    <p>📁 <strong>Prepare clean, audit-ready outputs</strong> on demand</p>
-                    <p>🔐 <strong>Keep all data</strong> securely within your infrastructure</p>
-                </section>
+           <div class="container-box" id="how-it-works">
+                <section class="icon-service-grid">
+                <div class="icon-service-item">
+                    <i class="fas fa-clock"></i>
+                    <p><strong>Save Hours</strong><br><span class="service-subtext">No more manual Excel updates</span></p>
+                </div>
+                <div class="icon-service-item">
+                    <i class="fas fa-bolt"></i>
+                    <p><strong>Flag Exceptions</strong><br><span class="service-subtext">Automatically catch risk issues</span></p>
+                </div>
+                <div class="icon-service-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <p><strong>Pass Audits</strong><br><span class="service-subtext">Clean, audit-ready outputs</span></p>
+                </div>
+            </section>
             </div>
 
-            <div class="container-box" id="how-it-works">
-                <section>
-                    <h2 style="text-align: center;">How We Work With You</h2>
-                    <div class="icon-service-grid">
-                        <div class="icon-service-item">
-                            <i class="fas fa-user-shield"></i>
-                            <p><strong>Start Safe</strong><br>
-                            <span class="service-subtext">You choose: redacted Excel file, secure remote session, or in-network install.</span></p>
-                        </div>
-                        <div class="icon-service-item">
-                            <i class="fas fa-cogs"></i>
-                            <p><strong>Automate</strong><br>
-                            <span class="service-subtext">We convert your reporting logic into an executable, reliable process.</span></p>
-                        </div>
-                        <div class="icon-service-item">
-                            <i class="fas fa-file-alt"></i>
-                            <p><strong>Deliver Confidence</strong><br>
-                            <span class="service-subtext">You get audit-ready, repeatable reports that reduce stress and increase visibility.</span></p>
-                        </div>
-                    </div>
-                </section>
-            </div>
+ 
+
 
             <section class="deployment-img">
                 <img 
