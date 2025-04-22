@@ -338,8 +338,8 @@ def home():
             <div class="container-box">
                 <header class="header">
                     <img src="/static/logo.png" alt="RS Automation Logo">
-                    <h1>We Turn Manual Excel Work Into Automated Reports</h1>
-                    <p><strong>Eliminate hours of manual work. Flag exceptions. Get audit-ready outputs weekly.</strong></p>
+                    <h1>Manual Excel Work Wastes Hours—and Exposes You to Risk</h1>
+                    <p><strong>Automate reporting, flag exceptions, and deliver audit-ready outputs—on time, every time.</strong></p>
                     <p style="font-size:0.9rem; color:#ccc;"><em>“Cut our reporting time by 90%.” – VP, Regional Lender</em></p>
                     <div style="margin-top: 20px;">
                         <a href="#get-started" class="cta-btn">📄 Download Overview</a>
