@@ -339,8 +339,9 @@ def home():
                 <header class="header">
                     <img src="/static/logo.png" alt="RS Automation Logo">
                     <h1>Manual Excel Work Wastes Hours—and Exposes You to Risk</h1>
-                    <p><strong>Automate reporting, flag exceptions, and deliver audit-ready outputs—on time, every time.</strong></p>
+                    <p><strong>We streamline operations across industries—no more Excel chaos, late reports, or compliance risks.</strong></p>
                     <p style="font-size:0.9rem; color:#ccc;"><em>“Cut our reporting time by 90%.” – VP, Regional Lender</em></p>
+                    <p style="font-size:0.8rem; color:#aaa;"><em>Also trusted by clinics, warehouse operators, and field teams managing complex data workflows.</em></p>
                     <div style="margin-top: 20px;">
                         <a href="#get-started" class="cta-btn">📄 Download Overview</a>
                         <a href="https://calendly.com/ramirez-ricardo55/30min" target="_blank" class="cta-btn">📅 Book Free Consult</a>
@@ -381,7 +382,7 @@ def home():
                     <h2>Get Started</h2>
                     <p>Select your preferred way to engage:</p>
                     <p><a href="https://calendly.com/ramirez-ricardo55/30min" target="_blank">📅 Schedule a Strategy Call</a></p>
-                    <a href="/get-pdf">📄 Download Our Overview PDF</a>
+                    <a href="/get-pdf">📄 See How Automation Fits Your Industry</a>
                     <p><a href="/static/rs_template.xlsx" download>📂 Download Redacted Template</a></p>
                     <p>Email us directly: <a href="mailto:info@rsautomationep.com">info@rsautomationep.com</a></p>
                 </section>
@@ -431,9 +432,9 @@ def home():
             <div class="container-box">
                 <section>
                     <h3 style="color:#00A1DA; text-align: center;">Our Mission</h3>
-                    <p class="about-text">To eliminate manual reporting and reduce compliance risk by delivering secure, audit-ready automation tailored for financial institutions.</p>
+                    <p class="about-text">To eliminate manual reporting and reduce compliance risk by delivering secure, audit-ready automation for clinics, warehouses, job sites, and financial institutions alike.</p>
                     <h3 style="color:#00A1DA; text-align: center;">Our Vision</h3>
-                    <p class="about-text">To become the most trusted automation partner for regulated institutions by making reporting effortless, accurate, and built for tomorrow’s audit.</p>
+                    <p class="about-text">TTo become the most trusted automation partner across essential industries—making reporting effortless, accurate, and future-ready for any audit or executive review.</p>
                 </section>
             </div>
 
