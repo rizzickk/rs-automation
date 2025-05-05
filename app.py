@@ -434,7 +434,7 @@ def home():
                     <h3 style="color:#00A1DA; text-align: center;">Our Mission</h3>
                     <p class="about-text">To eliminate manual reporting and reduce compliance risk by delivering secure, audit-ready automation for clinics, warehouses, job sites, and financial institutions alike.</p>
                     <h3 style="color:#00A1DA; text-align: center;">Our Vision</h3>
-                    <p class="about-text">TTo become the most trusted automation partner across essential industries—making reporting effortless, accurate, and future-ready for any audit or executive review.</p>
+                    <p class="about-text">To become the most trusted automation partner across essential industries—making reporting effortless, accurate, and future-ready for any audit or executive review.</p>
                 </section>
             </div>
 
